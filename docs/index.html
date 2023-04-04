@@ -1,38 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>GREditorialSupportWeb</title>
-    <base href="/EditorialSupportWeb/" />
-    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />
-    <link href="css/app.css" rel="stylesheet" />
-    <link rel="icon" type="image/png" href="favicon.png" />
-    <link href="GREditorialSupportWeb.styles.css" rel="stylesheet" />
-    <link href="manifest.json" rel="manifest" />
-    <link rel="apple-touch-icon" sizes="512x512" href="icon-512.png" />
-    <link rel="apple-touch-icon" sizes="192x192" href="icon-192.png" />
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta content="width=device-width" name="viewport">
+    <title>GR編集サポートウェブ</title>
+    <meta name="description" content="ゲームリソースの編集サポートウェブ版（開発者向け）">
+    <link href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/11.0.0/css/fabric.min.css"
+        rel="stylesheet" />
+    <link rel="shortcut icon" href="favicon.png">
 </head>
 
 <body>
-    <div id="app">
-        <svg class="loading-progress">
-            <circle r="40%" cx="50%" cy="50%" />
-            <circle r="40%" cx="50%" cy="50%" />
-        </svg>
-        <div class="loading-progress-text"></div>
+    <h1>
+        GR編集サポートウェブ
+    </h1>
+    <div>
+        <p>
+            GitHubDevウェブエディター
+        </p>
+        <div>
+            <p>
+                <input type="checkbox" id="Main">
+                <label for="Main">メイン</label>
+            </p>
+            <p>
+                <input type="checkbox" id="Content">
+                <label for="Content">コンテンツ</label>
+            </p>
+            <p>
+                <input type="checkbox" id="Calendar">
+                <label for="Calendar">カレンダー</label>
+            </p>
+            <p>
+                <input type="checkbox" id="Post">
+                <label for="Post">投稿</label>
+            </p>
+        </div>
+        <button onclick="Start()" id="StartButton">
+            開始
+        </button>
     </div>
 
-    <div id="blazor-error-ui">
-        An unhandled error has occurred.
-        <a href="" class="reload">Reload</a>
-        <a class="dismiss">🗙</a>
-    </div>
-    <script src="_framework/blazor.webassembly.js" autostart="false"></script>
-    <script>navigator.serviceWorker.register('service-worker.js');</script>
-    <script src="decode.min.js"></script>
-    <script src="brotliloader.min.js"></script>
 </body>
+
+<script>
+    function Start() {
+        if (document.getElementById("Main").checked) {
+            window.open("https://github.dev/Game-Resources/Game-Resources.github.io", "_blank")
+            window.open("https://github.com/Game-Resources/Game-Resources.github.io", "_blank")
+        } else if (document.getElementById("Content").checked) {
+            window.open("https://github.dev/Game-Resources/Content", "_blank")
+            window.open("https://github.com/Game-Resources/Content", "_blank")
+        } else if (document.getElementById("Calendar").checked) {
+            window.open("https://outlook.live.com/calendar/", "_blank")
+        } else if (document.getElementById("Post").checked) {
+            window.open("https://github.dev/Game-Resources/Post", "_blank")
+            window.open("https://github.com/Game-Resources/Post", "_blank")
+        }
+    }
+</script>
 
 </html>
