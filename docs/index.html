@@ -41,7 +41,15 @@
             開始
         </button>
     </div>
-
+    <div style="background-color: rgba(0, 128, 128, 0.4);">
+        <p>
+            <strong>
+                お詫び
+            </strong>
+            GR編集サポートウェブに重大な不具合がありました。
+            詳細はこの<a href="https://github.com/Game-Resources/EditorialSupportWeb/issues/1">リンク</a>からご確認ください。
+        </p>
+    </div>
 </body>
 
 <script>
@@ -49,12 +57,15 @@
         if (document.getElementById("Main").checked) {
             window.open("https://github.dev/Game-Resources/Game-Resources.github.io", "_blank")
             window.open("https://github.com/Game-Resources/Game-Resources.github.io", "_blank")
-        } else if (document.getElementById("Content").checked) {
+        }
+        if (document.getElementById("Content").checked) {
             window.open("https://github.dev/Game-Resources/Content", "_blank")
             window.open("https://github.com/Game-Resources/Content", "_blank")
-        } else if (document.getElementById("Calendar").checked) {
+        }
+        if (document.getElementById("Calendar").checked) {
             window.open("https://outlook.live.com/calendar/", "_blank")
-        } else if (document.getElementById("Post").checked) {
+        }
+        if (document.getElementById("Post").checked) {
             window.open("https://github.dev/Game-Resources/Post", "_blank")
             window.open("https://github.com/Game-Resources/Post", "_blank")
         }
