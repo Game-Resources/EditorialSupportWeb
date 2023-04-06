@@ -9,6 +9,23 @@
     <link href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/11.0.0/css/fabric.min.css"
         rel="stylesheet" />
     <link rel="shortcut icon" href="favicon.png">
+    <style>
+        .Button {
+            background-color: white;
+            cursor: pointer;
+            border-color: grey;
+            border-width: 0.4px;
+            border-radius: 2px;
+        }
+
+        .Button:hover {
+            background-color: rgba(0, 0, 255, 0.2);
+        }
+
+        .Button:active {
+            background-color: rgba(0, 0, 255, 0.4);
+        }
+    </style>
 </head>
 
 <body>
@@ -37,7 +54,7 @@
                 <label for="Post">投稿</label>
             </p>
         </div>
-        <button onclick="Start()" id="StartButton">
+        <button onclick="Start()" id="StartButton" class="Button">
             開始
         </button>
     </div>
