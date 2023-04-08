@@ -72,7 +72,7 @@
 </body>
 
 <script>
-    if (localStorage.getItem("DarkMode") == "1") {
+    if (localStorage.getItem("EditorialSupportWeb.DarkMode") == "1") {
         document.getElementById("LinkCss").href = "StyleDark.css"
     } else {
         document.getElementById("LinkCss").href = "Style.css"
@@ -80,7 +80,7 @@
 
     var DarkModeCheckbox = document.getElementById("DarkMode")
     var DarkModeChecked = DarkModeCheckbox.checked
-    if (localStorage.getItem("DarkMode") == "1") {
+    if (localStorage.getItem("EditorialSupportWeb.DarkMode") == "1") {
         DarkModeCheckbox.checked = true
     } else {
         DarkModeCheckbox.checked = false
@@ -106,11 +106,11 @@
     function DarkModeClick() {
         var DarkModeChecked = document.getElementById("DarkMode").checked
         if (DarkModeChecked) {
-            localStorage.setItem("DarkMode", "1")
+            localStorage.setItem("EditorialSupportWeb.DarkMode", "1")
         } else {
-            localStorage.setItem("DarkMode", "0")
+            localStorage.setItem("EditorialSupportWeb.DarkMode", "0")
         }
-        if (localStorage.getItem("DarkMode") == "1") {
+        if (localStorage.getItem("EditorialSupportWeb.DarkMode") == "1") {
             document.getElementById("LinkCss").href = "StyleDark.css"
         } else {
             document.getElementById("LinkCss").href = "Style.css"
