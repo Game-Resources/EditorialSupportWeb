@@ -2,6 +2,7 @@
 <html lang="ja">
 
 <head>
+    <link id="LinkCss" rel="stylesheet">
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
     <meta content="width=device-width" name="viewport">
     <title>GR編集サポートウェブ</title>
@@ -10,57 +11,81 @@
         rel="stylesheet" />
     <link rel="shortcut icon" href="favicon.png">
     <style>
-        .Button {
-            background-color: white;
-            cursor: pointer;
-            border-color: grey;
-            border-width: 0.4px;
-            border-radius: 2px;
-        }
-
-        .Button:hover {
-            background-color: rgba(0, 0, 255, 0.2);
-        }
-
-        .Button:active {
-            background-color: rgba(0, 0, 255, 0.4);
+        .Menu {
+            float: right;
         }
     </style>
 </head>
 
 <body>
-    <h1>
-        GR編集サポートウェブ
-    </h1>
-    <div>
-        <p>
-            GitHubDevウェブエディター
-        </p>
+    <div class="Menu">
+        <details>
+            <summary>
+            </summary>
+            <div>
+                <details>
+                    <summary>
+                        設定
+                    </summary>
+                    <div>
+                        <p>
+                            <input type="checkbox" id="DarkMode" onclick="DarkModeClick()">
+                            <label for="DarkMode">ダークモード</label>
+                        </p>
+                    </div>    
+                </details>
+            </div>
+
+        </details>
+    </div>
+    <main>
+        <h1>
+            GR編集サポートウェブ
+        </h1>
         <div>
             <p>
-                <input type="checkbox" id="Main">
-                <label for="Main">メイン</label>
+                GitHubDevウェブエディター
             </p>
-            <p>
-                <input type="checkbox" id="Content">
-                <label for="Content">コンテンツ</label>
-            </p>
-            <p>
-                <input type="checkbox" id="Calendar">
-                <label for="Calendar">カレンダー</label>
-            </p>
-            <p>
-                <input type="checkbox" id="Post">
-                <label for="Post">投稿</label>
-            </p>
+            <div>
+                <p>
+                    <input type="checkbox" id="Main">
+                    <label for="Main">メイン</label>
+                </p>
+                <p>
+                    <input type="checkbox" id="Content">
+                    <label for="Content">コンテンツ</label>
+                </p>
+                <p>
+                    <input type="checkbox" id="Calendar">
+                    <label for="Calendar">カレンダー</label>
+                </p>
+                <p>
+                    <input type="checkbox" id="Post">
+                    <label for="Post">投稿</label>
+                </p>
+            </div>
+            <button onclick="Start()" id="StartButton">
+                開始
+            </button>
         </div>
-        <button onclick="Start()" id="StartButton" class="Button">
-            開始
-        </button>
-    </div>
+    </main>
 </body>
 
 <script>
+    if (localStorage.getItem("DarkMode") == "1") {
+        document.getElementById("LinkCss").href = "StyleDark.css"
+    } else {
+        document.getElementById("LinkCss").href = "Style.css"
+    }
+
+    var DarkModeCheckbox = document.getElementById("DarkMode")
+    var DarkModeChecked = DarkModeCheckbox.checked
+    if (localStorage.getItem("DarkMode") == "1") {
+        DarkModeCheckbox.checked = true
+    } else {
+        DarkModeCheckbox.checked = false
+    }
+
     function Start() {
         if (document.getElementById("Main").checked) {
             window.open("https://github.dev/Game-Resources/Game-Resources.github.io", "_blank")
@@ -76,6 +101,19 @@
         if (document.getElementById("Post").checked) {
             window.open("https://github.dev/Game-Resources/Post", "_blank")
             window.open("https://github.com/Game-Resources/Post", "_blank")
+        }
+    }
+    function DarkModeClick() {
+        var DarkModeChecked = document.getElementById("DarkMode").checked
+        if (DarkModeChecked) {
+            localStorage.setItem("DarkMode", "1")
+        } else {
+            localStorage.setItem("DarkMode", "0")
+        }
+        if (localStorage.getItem("DarkMode") == "1") {
+            document.getElementById("LinkCss").href = "StyleDark.css"
+        } else {
+            document.getElementById("LinkCss").href = "Style.css"
         }
     }
 </script>
